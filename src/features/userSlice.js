@@ -5,7 +5,7 @@ const initialState = {
   status: 'idle',
 };
 
-export const counterSlice = createSlice({
+export const userSlice = createSlice({
   name: 'counter',
   initialState,
   reducers: {
@@ -21,9 +21,9 @@ export const counterSlice = createSlice({
   },
 });
 
-export const { increment, decrement, incrementByAmount } = counterSlice.actions;
+export const { increment, decrement, incrementByAmount } = userSlice.actions;
 
 export const selectCount = (state) => state.counter.value;
 
 
-export default counterSlice.reducer;
+export default userSlice.reducer;

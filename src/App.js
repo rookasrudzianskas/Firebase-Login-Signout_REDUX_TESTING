@@ -2,7 +2,8 @@ import React from 'react';
 import './App.css';
 import {auth, provider} from "./firebase";
 import {useDispatch, useSelector} from "react-redux";
-import {selectUserEmail, selectUserName} from "./features/userSlice";
+import {selectUserEmail, selectUserName, setUserLogOutState} from "./features/userSlice";
+import Button from '@material-ui/core/Button';
 
 
 function App() {
@@ -12,7 +13,10 @@ function App() {
     const userEmail = useSelector(selectUserEmail);
 
     const handleSignOut = () => {
-
+        // this is sign out
+        auth.signOut().then(() => {
+            dispatch(setUserLogOutState())
+        }).catch((err) => alert(err.message));
     }
 
     const handleSignIn = () => {
@@ -25,9 +29,9 @@ function App() {
 
         {
             userName ? (
-                <button onClick={handleSignOut}>Sign Out 🤹</button>
+                <Button onClick={handleSignOut}>Sign Out 🤹</Button>
             ) : (
-                <button onClick={handleSignIn}>Sign In 👳‍</button>
+                <Button onClick={handleSignIn}>Sign In 👳‍</Button>
             )
         }
     </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import {auth, provider} from "./firebase";
 import {useDispatch, useSelector} from "react-redux";
-import {selectUserEmail, selectUserName, setUserLogOutState} from "./features/userSlice";
+import {selectUserEmail, selectUserName, setActiveUser, setUserLogOutState} from "./features/userSlice";
 import Button from '@material-ui/core/Button';
 
 
@@ -20,7 +20,12 @@ function App() {
     }
 
     const handleSignIn = () => {
-        auth.signInWithPopup(provider);
+        auth.signInWithPopup(provider).then((result) => {
+            dispatch(setActiveUser({
+                username: result.user.displayName,
+                userEmail: result.user.email,
+            }))
+        })
     }
 
   return (

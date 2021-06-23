@@ -22,9 +22,10 @@ export const userSlice = createSlice({
   },
 });
 
+// for dispatching these ones go first
 export const { setActiveUser, setUserLogOutState } = userSlice.actions;
 
-// if we need to get them
+// if we need to get them, so we use these selectors
 export const selectUserName = state => state.user.userName;
 export const selectUserEmail = state => state.user.userEmail;
 

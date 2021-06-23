@@ -13,10 +13,15 @@ export const userSlice = createSlice({
         // this adds the username to the initial state
         state.userName = action.payload.username;
         state.userEmail = action.payload.userEmail;
-    }
+    },
+      setUserLogOutState: state => {
+        // this sets the initial state to something
+        state.userName = null;
+        state.userEmail = null;
+      }
   },
 });
 
-export const { increment, decrement } = userSlice.actions;
+export const { setActiveUser, setUserLogOutState } = userSlice.actions;
 
 export default userSlice.reducer;

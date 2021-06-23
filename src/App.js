@@ -20,7 +20,7 @@ function App() {
     }
 
     const handleSignIn = () => {
-
+        auth.signInWithPopup(provider);
     }
 
   return (

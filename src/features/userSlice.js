@@ -16,6 +16,7 @@ export const userSlice = createSlice({
     },
       setUserLogOutState: state => {
         // this sets the initial state to something
+          //DONE
         state.userName = null;
         state.userEmail = null;
       }

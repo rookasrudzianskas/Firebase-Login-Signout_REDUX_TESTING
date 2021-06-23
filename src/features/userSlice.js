@@ -9,7 +9,11 @@ export const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-
+    setActiveUser: (state, action) => {
+        // this adds the username to the initial state
+        state.userName = action.payload.username;
+        state.userEmail = action.payload.userEmail;
+    }
   },
 });
 
